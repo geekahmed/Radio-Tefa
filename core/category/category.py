@@ -1,4 +1,13 @@
-from pydantic import BaseModel
+from typing import Optional
+from pydantic import BaseModel, Field
+from typing import Optional
 
-class Category(BaseModel):
-    pass
+class CategoryBase(BaseModel):
+    name: str
+    description: str
+    image_link: str
+
+class CategoryInDB(CategoryBase):
+    id : str = Field(..., alias="_id")
+
+
